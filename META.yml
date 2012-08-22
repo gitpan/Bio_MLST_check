@@ -1,0 +1,36 @@
+---
+abstract: 'Multilocus sequence typing checking'
+author:
+  - 'Andrew J. Page <ap13@sanger.ac.uk>'
+build_requires:
+  Test::Most: 0
+  strict: 0
+  warnings: 0
+configure_requires:
+  ExtUtils::MakeMaker: 6.30
+dynamic_config: 0
+generated_by: 'Dist::Zilla version 4.300021, CPAN::Meta::Converter version 2.120921'
+license: gpl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Bio_MLST_check
+requires:
+  Bio::Perl: 0
+  Bio::PrimarySeq: 0
+  Bio::SeqIO: 0
+  Cwd: 0
+  Exception::Class: 0
+  File::Basename: 0
+  File::Copy: 0
+  File::Path: 0
+  File::Temp: 0
+  File::Which: 0
+  LWP::Simple: 0
+  Moose: 0
+  Moose::Role: 0
+  Moose::Util::TypeConstraints: 0
+  Parallel::ForkManager: 0
+  Text::CSV: 0
+  XML::LibXML: 0
+version: 1.122350
