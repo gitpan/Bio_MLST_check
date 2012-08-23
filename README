@@ -1,7 +1,7 @@
 
 
 This archive contains the distribution Bio_MLST_check,
-version 20120823.0913:
+version 20120823.0943:
 
   do this once
 export MLST_DATABASES=/path/to/where_you_want_to_store_the_databases

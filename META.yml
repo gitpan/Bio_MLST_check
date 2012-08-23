@@ -22,7 +22,7 @@ requires:
   Cwd: 0
   File::Basename: 0
   File::Copy: 0
-  File::Path: 0
+  File::Path: 2.06
   File::Temp: 0
   File::Which: 0
   Getopt::Long: 0
@@ -36,4 +36,4 @@ requires:
 resources:
   homepage: http://www.sanger.ac.uk/
   repository: https://github.com/sanger-pathogens/mlst_check.git
-version: 20120823.0913
+version: 20120823.0943
