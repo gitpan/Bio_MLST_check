@@ -1,6 +1,9 @@
 =head1 NAME
+
 Bio::MLST::Spreadsheet::Row
+
 =head1 SYNOPSIS
+
 Create a row representation of the ST results for a single fasta file.
 
 =head1 DESCRIPTION
@@ -13,8 +16,11 @@ my $spreadsheet_row_obj = Bio::MLST::Spreadsheet::Row->new(
 
 $spreadsheet_row_obj->allele_numbers_row;
 $spreadsheet_row_obj->genomic_row;
+
 =head1 CONTACT
+
 path-help@sanger.ac.uk
+
 =cut
 
 package Bio::MLST::Spreadsheet::Row;
@@ -122,7 +128,15 @@ sub _build_genomic_row
 sub _build_header_row
 {
   my($self) = @_;
-  my @header_cells = (('Isolate', 'ST','New ST', 'Contamination'), @{$self->_allele_order});
+  
+  my @allele_headers;
+  for my $sequence_name (@{$self->_allele_order})
+  {
+    my @sequence_name_details = split('-',$sequence_name);
+    push(@allele_headers,$sequence_name_details[0]);
+  }
+  
+  my @header_cells = (('Isolate', 'ST','New ST', 'Contamination'), @allele_headers);
   return \@header_cells;
 }
 

@@ -16,9 +16,11 @@ meta-spec:
   version: 1.4
 name: Bio_MLST_check
 requires:
+  Bio::AlignIO: 0
   Bio::Perl: 0
   Bio::PrimarySeq: 0
   Bio::SeqIO: 0
+  Bio::SimpleAlign: 0
   Cwd: 0
   File::Basename: 0
   File::Copy: 0
@@ -36,4 +38,4 @@ requires:
 resources:
   homepage: http://www.sanger.ac.uk/
   repository: https://github.com/sanger-pathogens/mlst_check.git
-version: 20120823.0943
+version: 20120823.1423

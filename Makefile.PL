@@ -27,9 +27,11 @@ my %WriteMakefileArgs = (
   "LICENSE" => "gpl",
   "NAME" => "Bio_MLST_check",
   "PREREQ_PM" => {
+    "Bio::AlignIO" => 0,
     "Bio::Perl" => 0,
     "Bio::PrimarySeq" => 0,
     "Bio::SeqIO" => 0,
+    "Bio::SimpleAlign" => 0,
     "Cwd" => 0,
     "File::Basename" => 0,
     "File::Copy" => 0,
@@ -45,7 +47,7 @@ my %WriteMakefileArgs = (
     "Text::CSV" => 0,
     "XML::LibXML" => 0
   },
-  "VERSION" => "20120823.0943",
+  "VERSION" => "20120823.1423",
   "test" => {
     "TESTS" => "t/Blast/*.t t/Download/*.t t/Input/*.t t/Output/*.t t/Overall/*.t t/SequenceTypes/*.t t/Settings/*.t"
   }

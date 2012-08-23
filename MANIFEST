@@ -66,6 +66,7 @@ t/data/expected_concatenated_alleles.fa
 t/data/expected_mlst_results.allele.csv
 t/data/expected_mlst_results.genomic.csv
 t/data/expected_three_concatenated_alleles.fa
+t/data/expected_three_concatenated_alleles.phylip
 t/data/expected_three_contigs_one_unknown.unknown_allele.adk-2.fa
 t/data/expected_three_contigs_one_unknown.unknown_allele.recA-1.fa
 t/data/expected_three_mlst_results.allele.csv

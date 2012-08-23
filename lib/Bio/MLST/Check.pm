@@ -3,9 +3,11 @@
 Bio::MLST::Check
 
 =head1 SYNOPSIS
+
 High throughput multilocus sequence typing (MLST) checking
 
 =head1 DESCRIPTION
+
 This application is for taking Multilocus sequence typing (MLST) sources from multiple locations and consolidating them in one place so that they can be easily used (and kept up to date).
 Then you can provide FASTA files and get out sequence types for a given MLST database.
 Two spreadsheets are outputted, one contains the allele number for each locus, and the ST (or nearest ST), the other contains the genomic sequence for each allele.  
@@ -41,6 +43,7 @@ Bio::MLST::Check->new(
 );
 
 =head1 CONTACT
+
 path-help@sanger.ac.uk
 
 =cut
@@ -52,6 +55,8 @@ use Parallel::ForkManager;
 use Bio::MLST::ProcessFasta;
 use Bio::MLST::Spreadsheet::File;
 use Bio::MLST::NormaliseFasta;
+use Bio::AlignIO;
+use Bio::SimpleAlign;
 use File::Temp;
 use Cwd;
 
@@ -63,6 +68,7 @@ has 'blastn_exec'           => ( is => 'ro', isa => 'Str',      required => 1 );
 has 'output_directory'      => ( is => 'ro', isa => 'Str',      required => 1 ); 
 has 'output_fasta_files'    => ( is => 'ro', isa => 'Bool',     default  => 0 ); 
 has 'spreadsheet_basename'  => ( is => 'ro', isa => 'Str',      default  => 'mlst_results' ); 
+has 'output_phylip_files'   => ( is => 'ro', isa => 'Bool',     default  => 0 ); 
 
 has 'parallel_processes'    => ( is => 'ro', isa => 'Int',      default  => 1 ); 
 
@@ -151,15 +157,34 @@ sub create_result_files
   
   if($self->output_fasta_files)
   {
-    my $output_filename = join('/',($self->output_directory,'concatenated_alleles.fa'));
-    my $out = Bio::SeqIO->new(-file => "+>$output_filename" , '-format' => 'Fasta');
-    for(my $i = 0;  $i < @{$self->_concat_names}; $i++)
-    {
-      next unless(defined( $self->_concat_sequences->[$i]));
-      $out->write_seq(Bio::PrimarySeq->new(-seq => $self->_concat_sequences->[$i], -id  => $self->_concat_names->[$i]));
-    }
+    $self->_create_alignment('Fasta','fa');
+  }
+  
+  if($self->output_phylip_files)
+  {
+    $self->_create_alignment('phylip','phylip');
   }
   1;
+}
+
+sub _create_alignment
+{
+  my($self, $format, $extension) = @_;
+  
+  my $output_filename = join('/',($self->output_directory,'concatenated_alleles.'.$extension));
+  my $out = Bio::AlignIO->new(-file => "+>$output_filename" , '-format' => $format);
+  my $aln = Bio::SimpleAlign->new();
+  for(my $i = 0;  $i < @{$self->_concat_names}; $i++)
+  {
+    next unless(defined( $self->_concat_sequences->[$i]));
+    $aln->add_seq(Bio::LocatableSeq->new(
+        -seq   => $self->_concat_sequences->[$i], 
+        -id    => $self->_concat_names->[$i], 
+        -start => 1, 
+        -end   => length($self->_concat_sequences->[$i]) 
+      ));
+  }
+  $out->write_aln($aln);
 }
 
 
