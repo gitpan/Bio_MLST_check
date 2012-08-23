@@ -1,9 +1,10 @@
 
 
 This archive contains the distribution Bio_MLST_check,
-version 1.122350:
+version 20120823.0913:
 
-  Multilocus sequence typing checking
+  do this once
+export MLST_DATABASES=/path/to/where_you_want_to_store_the_databases
 
 This software is Copyright (c) 2012 by Wellcome Trust Sanger Institute.
 

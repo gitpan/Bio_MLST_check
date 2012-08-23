@@ -1,5 +1,5 @@
 ---
-abstract: 'Multilocus sequence typing checking'
+abstract: "do this once\nexport MLST_DATABASES=/path/to/where_you_want_to_store_the_databases"
 author:
   - 'Andrew J. Page <ap13@sanger.ac.uk>'
 build_requires:
@@ -20,12 +20,12 @@ requires:
   Bio::PrimarySeq: 0
   Bio::SeqIO: 0
   Cwd: 0
-  Exception::Class: 0
   File::Basename: 0
   File::Copy: 0
   File::Path: 0
   File::Temp: 0
   File::Which: 0
+  Getopt::Long: 0
   LWP::Simple: 0
   Moose: 0
   Moose::Role: 0
@@ -33,4 +33,7 @@ requires:
   Parallel::ForkManager: 0
   Text::CSV: 0
   XML::LibXML: 0
-version: 1.122350
+resources:
+  homepage: http://www.sanger.ac.uk/
+  repository: https://github.com/sanger-pathogens/mlst_check.git
+version: 20120823.0913

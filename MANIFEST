@@ -1,9 +1,12 @@
+INSTALL
 LICENSE
 MANIFEST
 META.yml
 Makefile.PL
 README
 README.md
+bin/download_mlst_databases
+bin/get_sequence_type
 dist.ini
 lib/Bio/MLST/Blast/BlastN.pm
 lib/Bio/MLST/Blast/Database.pm
@@ -14,7 +17,6 @@ lib/Bio/MLST/Databases.pm
 lib/Bio/MLST/Download/Database.pm
 lib/Bio/MLST/Download/Databases.pm
 lib/Bio/MLST/Download/Downloadable.pm
-lib/Bio/MLST/Exceptions.pm
 lib/Bio/MLST/NormaliseFasta.pm
 lib/Bio/MLST/OutputFasta.pm
 lib/Bio/MLST/ProcessFasta.pm
@@ -25,8 +27,6 @@ lib/Bio/MLST/Spreadsheet/Row.pm
 lib/Bio/MLST/Types.pm
 lib/Bio/MLST/Validate/Executable.pm
 lib/Bio/MLST/Validate/File.pm
-scripts/download_mlst_databases
-scripts/get_sequence_type
 t/Blast/BlastN.t
 t/Blast/Database.t
 t/Download/Database.t

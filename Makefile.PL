@@ -9,7 +9,7 @@ use ExtUtils::MakeMaker 6.30;
 
 
 my %WriteMakefileArgs = (
-  "ABSTRACT" => "Multilocus sequence typing checking",
+  "ABSTRACT" => "do this once\nexport MLST_DATABASES=/path/to/where_you_want_to_store_the_databases",
   "AUTHOR" => "Andrew J. Page <ap13\@sanger.ac.uk>",
   "BUILD_REQUIRES" => {
     "Test::Most" => 0,
@@ -20,7 +20,10 @@ my %WriteMakefileArgs = (
     "ExtUtils::MakeMaker" => "6.30"
   },
   "DISTNAME" => "Bio_MLST_check",
-  "EXE_FILES" => [],
+  "EXE_FILES" => [
+    "bin/download_mlst_databases",
+    "bin/get_sequence_type"
+  ],
   "LICENSE" => "gpl",
   "NAME" => "Bio_MLST_check",
   "PREREQ_PM" => {
@@ -28,12 +31,12 @@ my %WriteMakefileArgs = (
     "Bio::PrimarySeq" => 0,
     "Bio::SeqIO" => 0,
     "Cwd" => 0,
-    "Exception::Class" => 0,
     "File::Basename" => 0,
     "File::Copy" => 0,
     "File::Path" => 0,
     "File::Temp" => 0,
     "File::Which" => 0,
+    "Getopt::Long" => 0,
     "LWP::Simple" => 0,
     "Moose" => 0,
     "Moose::Role" => 0,
@@ -42,7 +45,7 @@ my %WriteMakefileArgs = (
     "Text::CSV" => 0,
     "XML::LibXML" => 0
   },
-  "VERSION" => "1.122350",
+  "VERSION" => "20120823.0913",
   "test" => {
     "TESTS" => "t/Blast/*.t t/Download/*.t t/Input/*.t t/Output/*.t t/Overall/*.t t/SequenceTypes/*.t t/Settings/*.t"
   }
