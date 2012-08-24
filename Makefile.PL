@@ -47,7 +47,7 @@ my %WriteMakefileArgs = (
     "Text::CSV" => 0,
     "XML::LibXML" => 0
   },
-  "VERSION" => "20120823.1423",
+  "VERSION" => "20120824.0840",
   "test" => {
     "TESTS" => "t/Blast/*.t t/Download/*.t t/Input/*.t t/Output/*.t t/Overall/*.t t/SequenceTypes/*.t t/Settings/*.t"
   }
